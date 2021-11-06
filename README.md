@@ -20,32 +20,13 @@ yarn install
 ```
 **IMPORTANT** 
 
-Now lets configure `config.json` and `token.json` files
-
-Create `token.json` at the current  directory and then write this in it:-
-
-`token.json`
-```json
-"token"
-```
-replace token with your bot's token
-
-now go to `src/`...
+to setup project, do:
 
 ```sh
-cd src/
+node setup.js
 ```
-...and open `config.json`.
- 
-replace `865164129655455754` with your bot's application ID (client ID)
+follow the prompts and other stuff....
 
-`config.json`
-
-```json
-{
-    "applicationId": "here"
-}
-```
 ..and.. you are done! *nice*
 
 Now simply start the development server and enjoy! :
