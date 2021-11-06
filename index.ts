@@ -1,17 +1,20 @@
 import { Client, Intents, Collection } from "discord.js";
 import fs from "fs";
-
-// The file where the token is stored
 import token from "./token.json";
+
 // Clear the console for a better view
 console.clear();
 
+/** @constant {Client} - The main client */
 export const client = new Client({
   partials: ["CHANNEL"],
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS],
+  /** 32767 means all intents */
+  intents: 32767,
 });
+
 (client as any).commands = new Collection();
 
+// The handler for events
 const eventFiles = fs
   .readdirSync("./src/events")
   .filter((file) => file.endsWith(".ts"));
@@ -25,8 +28,10 @@ for (const file of eventFiles) {
   }
 }
 
+// Some events that do not need seperate files
 client
-  .on("disconnect", () => console.warn("Disconnecting..."))
-  .on("reconnecting", () => console.info("Reconnecting..."));
+  .on("disconnect", () => console.log("Disconnecting..."))
+  .on("reconnecting", () => console.log("Reconnecting..."));
 
+// login with the imported token
 client.login(token);
