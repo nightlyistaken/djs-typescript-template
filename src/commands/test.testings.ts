@@ -1,7 +1,6 @@
 import { CommandInteraction } from "discord.js";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageEmbed } from "discord.js";
-import { inlineCode } from "@discordjs/builders";
 import util from "util";
 
 const wait = util.promisify(setTimeout);
@@ -20,13 +19,13 @@ export = {
     const embed = new MessageEmbed();
     embed
       .setColor("#332191")
-      .setTitle("")
+      .setTitle("Test!")
       .setAuthor(
         `${interaction.user.username}`,
         `${interaction.user.displayAvatarURL({ format: "jpg" })}`
       )
       .setDescription(
-        inlineCode(`It's ${Date.now() - interaction.createdTimestamp} ms`)
+        "YAY! works"
       );
     await interaction.channel?.sendTyping()
     await wait(1000)
