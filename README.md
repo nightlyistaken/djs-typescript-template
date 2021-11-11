@@ -18,6 +18,10 @@ Install the dependencies
 ```sh
 yarn install
 ```
+Or just 
+```sh
+yarn
+```
 **IMPORTANT** 
 
 to setup project, do:
